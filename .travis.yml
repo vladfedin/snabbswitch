@@ -1,0 +1,16 @@
+language: c, lua
+compiler:
+  - gcc
+  - lua
+
+before_install:
+  - sudo apt-get update
+  - sudo apt-get install lua5.1
+  - sudo apt-get install linux-libc-dev
+
+script: make; cd src; make test
+
+# configure notifications (email, IRC, campfire etc)
+notifications:
+  email:
+    - vf@logiceditor.com
