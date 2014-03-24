@@ -8,7 +8,10 @@ before_install:
   - sudo apt-get install lua5.1
   - sudo apt-get install linux-libc-dev
 
-script: make; cd src; make test
+script:
+  - sudo snabbswitch -t apps.rate_limiter.rate_limiter
+  - make; (cd src; make test)
+  - ls ./src/testlog/* | xargs -l1 cat
 
 # configure notifications (email, IRC, campfire etc)
 notifications:
